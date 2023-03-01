@@ -1,0 +1,45 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "How are you",
+        "Hello"
+      ],
+      "responses": [
+        "Hi there, Welcome to KCT how can I help?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye"],
+      "responses": [
+        "See you later, thanks for visiting",
+        "Have a nice day"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "responses": ["Happy to help!","My pleasure"]
+    },
+    {
+      "tag": "admin",
+      "patterns": [
+        "where is admin block?",
+        "girls hostel",
+        "boys hostel",
+        "B block",
+        "C block",
+        "D block",
+        "E block",
+        "kore"
+      ],
+      "responses": [
+        "Please use the above navigation box enter the location you want to go!"
+      ]
+    }
+  ]
+}
