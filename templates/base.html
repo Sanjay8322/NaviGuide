@@ -7,49 +7,62 @@
     <link rel="icon" type="image/png" href="/static/images/kctBadge.png">
     <title>NaviGuide</title>
 </head>
+
 <body>
-<div class="container">
-    <div>
-        <img src="/static/images/KCTLogo.png" style="" alt="kctImage">
-        <iframe
-        id="map-viewer-iframe"
-        style="width:100%; height:600px"
-        src="https://map-viewer.situm.com?email=ssai41816@gmail.com&apikey=f757f847bb42c2c1dae2f1d0b7969c654cc1ec3fcf1023cf7df017a955114847">
-    </iframe>
+
+    <div class="container">
+
+        <div class="kctLogo">
+            <img src="/static/images/KCTLogo.png" alt="kctImage">
+        </div>
+
+        <div>
+            <iframe id="map-viewer-iframe" style="width:100%; height:600px"
+                src="https://map-viewer.situm.com?email=ssai41816@gmail.com&apikey=f757f847bb42c2c1dae2f1d0b7969c654cc1ec3fcf1023cf7df017a955114847">
+            </iframe>
+        </div>
+        
+        <div class="chatbox">
+            <div class="chatbox__support">
+                <div class="chatbox__header">
+                    <div class="chatbox__image--header">
+                        <img src="/static/images/kctBadge.png" style="height:70px;margin-right:10px" alt="image">
+                    </div>
+                    <div class="chatbox__content--header">
+                        <h4 class="chatbox__heading--header">KCT Chat support</h4>
+                        <p class="chatbox__description--header">Hi, Welcome to KCT. Type your queries!</p>
+                    </div>
+                </div>
+                <div class="chatbox__messages">
+                    <div></div>
+                </div>
+                <div class="chatbox__footer">
+                    <input type="text" placeholder="Write a message...">
+                    <button class="chatbox__send--footer send__button">Send</button>
+                </div>
+            </div>
+            <div class="chatbox__button">
+                <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
+            </div>
+        </div>
+
+        <div class="button_container">
+            <button class="button"><a
+                    href="https://veespaces.live/360/?campaign_id=campdemo&tour_code=5oCgSR46Ol19viFHX0KDA38PTrcpaQnf"
+                    target="_blank" style="text-decoration: none;color: white;">Explore KCT in 360 View</a></button>
+            <p style="color:#0c0531 ; margin: 20px; font-weight: bold;">Please complete the survey to assist KCT
+                management. Your input is appreciated. Thank you.</p>
+            <button class="button"><a href="" target="blank"
+                    style="text-decoration: none; color: white;">Survey</a></button>
+        </div>
 
     </div>
-    <div class="chatbox">
-        <div class="chatbox__support">
-            <div class="chatbox__header">
-                <div class="chatbox__image--header">
-                    <img src="/static/images/kctBadge.png" style="height:70px;margin-right:10px" alt="image">
-                </div>
-                <div class="chatbox__content--header">
-                    <h4 class="chatbox__heading--header">KCT Chat support</h4>
-                    <p class="chatbox__description--header">Hi, Welcome to KCT. Type your queries!</p>
-                </div>
-            </div>
-            <div class="chatbox__messages">
-                <div></div>
-            </div>
-            <div class="chatbox__footer">
-                <input type="text" placeholder="Write a message...">
-                <button class="chatbox__send--footer send__button">Send</button>
-            </div>
-        </div>
-        <div class="chatbox__button">
-            <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
-        </div>
-    </div>
-    <div>
-        <button style="text-align: center; background-color: white;"><a href="https://veespaces.live/360/?campaign_id=campdemo&tour_code=5oCgSR46Ol19viFHX0KDA38PTrcpaQnf" target="_blank" style="text-decoration: none;color: #0c0531; ">Explore KCT in 360 View</a></button>
-    </div>
-</div>
 
     <script>
-        $SCRIPT_ROOT = {{ request.script_root|tojson }};
+        $SCRIPT_ROOT = {{ request.script_root | tojson }};
     </script>
     <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
 
 </body>
+
 </html>

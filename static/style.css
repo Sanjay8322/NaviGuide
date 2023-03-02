@@ -5,19 +5,54 @@
 }
 
 /*My code*/
-.map{
-    display: flex;
+
+#logo {
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
-.f_contain{
+.kctLogo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.button_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    flex-direction: column;
+}
+
+/* Style the buttons */
+.button {
+    padding: 10px;
+    margin: 10px;
+    font-size: 1.2rem;
+    background-color: #0c0531;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.map {
+    display: flex;
+}
+
+.f_contain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 /*My code*/
 
 body {
+
     font-family: 'Nunito', sans-serif;
     font-weight: 400;
     font-size: 100%;
@@ -25,13 +60,15 @@ body {
 }
 
 
-*, html {
+*,
+html {
     --primaryGradient: linear-gradient(93.12deg, #252790 20.52%, #0c0531 100%);
-    --secondaryGradient: linear-gradient(268.91deg, #252790 -2.14%, #0c0531  99.69%);
+    --secondaryGradient: linear-gradient(268.91deg, #252790 -2.14%, #0c0531 99.69%);
     --primaryBoxShadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
     --secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
     --primary: #252790;
 }
+
 /* 581B98 */
 .chatbox {
     position: absolute;
@@ -125,6 +162,7 @@ body {
     border-top-right-radius: 20px;
     box-shadow: var(--primaryBoxShadow);
 }
+
 /* 
 .chatbox__image--header {
     margin-right: 10px;
