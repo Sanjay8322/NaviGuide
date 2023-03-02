@@ -6,19 +6,16 @@
 
 /*My code*/
 
-#logo {
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.kctLogo {
+.kctLogo {  
+    background-image: linear-gradient(to right, #00112a, #3e4359, #7b7c8d, #bcbbc4, #ffffff);
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .button_container {
+    background-image: linear-gradient(to left, #00112a, #3e4359, #7b7c8d, #bcbbc4, #ffffff);
     display: flex;
     justify-content: center;
     align-items: center;
