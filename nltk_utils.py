@@ -1,7 +1,7 @@
 import nltk
 import numpy as np
 
-# nltk.download('punkt')  #package for pre trained tokenizer 
+nltk.download('punkt')  #package for pre trained tokenizer 
 
 from nltk.stem.porter import PorterStemmer  #used for stemming of words there also different stemmers available here we using porterStemmer
 stemmer=PorterStemmer() 
