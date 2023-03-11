@@ -1,13 +1,21 @@
 import nltk
 import numpy as np
 
-nltk.download('punkt')  #package for pre trained tokenizer 
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
 
 from nltk.stem.porter import PorterStemmer  #used for stemming of words there also different stemmers available here we using porterStemmer
 stemmer=PorterStemmer() 
 
 def tokenize(sentence):
-    return nltk.word_tokenize(sentence)
+    try:
+        return nltk.word_tokenize(sentence)
+    except Exception as e:
+        return str(e)
+
 
 def stem(word):
     return stemmer.stem(word.lower())
