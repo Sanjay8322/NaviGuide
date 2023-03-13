@@ -40,6 +40,39 @@
       "responses": [
         "Please use the above navigation box enter the location you want to go!"
       ]
+    },
+    {
+      "tag": "food",
+      "patterns": [
+        "snacks",
+        "food",
+        "lunch",
+        "breakfast",
+        "cafe coffee day",
+        "ccd",
+        "kore",
+        "east kore",
+        "where can i get lunch",
+        "where can i get snack",
+        "i am hungry",
+        "juice",
+        "where can i buy juice",
+        "eat"
+      ],
+      "responses": [
+        "You can search for kore, east kore, or k's cafe in the navigation box"
+      ]
+    },
+    {
+      "tag": "clubs",
+      "patterns": [
+        "available clubs",
+        "clubs in kct",
+        "clubs"
+      ],
+      "responses": [
+        "Some available clubs at KCT are Varnam, evoke, band agartha, studio kct, iQube, SOIL, etc.\nFor more info visit: https://www.kct.ac.in/office-of-student-affairs/"
+      ]
     }
   ]
 }
