@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='2d-map-style.css') }}">
 
 <head>
     <meta charset="UTF-8">
@@ -16,7 +17,10 @@
             <img src="/static/images/kctBadge.png" alt="kctImage">
         </div>
 
-        <div>
+        <div class="map">
+            <div class="kctMapLogo">
+                <img src="/static/images/KCTLogo.png" alt="kctImage">
+            </div>
             <iframe id="map-viewer-iframe" style="width:100%; height:600px;"
                 src="https://map-viewer.situm.com?email=ssai41816@gmail.com&apikey=f757f847bb42c2c1dae2f1d0b7969c654cc1ec3fcf1023cf7df017a955114847">
             </iframe>
