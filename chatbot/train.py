@@ -9,7 +9,7 @@ from torch.utils.data import Dataset,DataLoader
 
 from model import NeuralNet
 
-with open('intents.json','r') as f:   # r is read 
+with open('chatbot/intents.json','r') as f:   # r is read 
     intents=json.load(f) 
 
 all_words=[]  #for bag of words
@@ -129,6 +129,6 @@ data={
     "tags":tags
 }
 
-FILE="data.pth"
+FILE="chatbot/data.pth"
 torch.save(data,FILE)
 print(f'Training complete. file saved to {FILE} ' )

@@ -1,17 +1,18 @@
 import random
 import json
+from urllib import response
 import torch
-from model import NeuralNet
-from nltk_utils import bag_of_words,tokenize
+from chatbot.model import NeuralNet
+from chatbot.nltk_utils import bag_of_words,tokenize
 
 device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-with open('intents.json','r') as f:
+with open('chatbot/intents.json','r') as f:
     intents=json.load(f)
 
 
 #We saved in train.py and here we load
 
-FILE="data.pth"
+FILE="chatbot/data.pth"
 data=torch.load(FILE)
 
 input_size=data["input_size"]
@@ -44,7 +45,8 @@ def get_response(msg):
     if prob.item() > 0.75:
         for intent in intents['intents']:
             if tag == intent["tag"]:
-                return random.choice(intent['responses'])
+                response_message = random.choice(intent['responses'])
+                return response_message
     
     return "I do not understand..."
 

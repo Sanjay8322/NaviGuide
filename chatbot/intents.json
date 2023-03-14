@@ -39,6 +39,30 @@
       ],
       "responses": [
         "Please use the above navigation box enter the location you want to go!"
+      ],
+      "purpose_tags": [
+        "visit_campus",
+        "explore"
+      ]
+    },
+    {
+      "tag": "admin",
+      "patterns": [
+        "where is admin block?",
+        "girls hostel",
+        "boys hostel",
+        "B block",
+        "C block",
+        "D block",
+        "E block",
+        "kore"
+      ],
+      "responses": [
+        "Please use the above navigation box enter the location you want to go!"
+      ],
+      "purpose_tags": [
+        "visit_campus",
+        "explore"
       ]
     },
     {
