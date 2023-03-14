@@ -1,5 +1,5 @@
 import json
-from nltk_utils import tokenize,stem,bag_of_words
+from chatbot.nltk_utils import tokenize,stem,bag_of_words
 import numpy as np
 
 #To read about this
@@ -7,7 +7,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset,DataLoader
 
-from model import NeuralNet
+from chatbot.model import NeuralNet
 
 with open('intents.json','r') as f:   # r is read 
     intents=json.load(f) 
