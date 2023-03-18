@@ -1,16 +1,15 @@
-import imp
 from pyspark.sql import SparkSession
 
 from pyspark.ml.evaluation import RegressionEvaluator
 from pyspark.ml.recommendation import ALS
 from pyspark.sql import Row
 
-from ExtractData import ExtractData
+from PurposeRecommender.ExtractData import ExtractData
 
-from transform_purpose_id import purposes_list
+from PurposeRecommender.transform_purpose_id import purposes_list
 
 
-if __name__ == "__main__":
+def get_recommendations(user_id):
     spark = SparkSession\
         .builder\
         .appName("PurposeRecommender")\
@@ -36,16 +35,18 @@ if __name__ == "__main__":
     rmse = evaluator.evaluate(predictions)
     print("Root-mean-square error = " + str(rmse))
 
-    userRecs = model.recommendForAllUsers(10)
+    userRecs = model.recommendForAllUsers(3)
 
-    testUserRecs = userRecs.filter(userRecs['userId'] == 3).collect()
+    testUserRecs = userRecs.filter(userRecs['userId'] == user_id).collect()
 
     spark.stop()
 
     ed = ExtractData()
     ed.loadData()
-
+    recommendations = []
     for row in testUserRecs:    
         for rec in row.recommendations:
-            print(ed.getpurposeName(purposes_list[rec.purposeId]))
+            recommendations.append(ed.getpurposeName(purposes_list[rec.purposeId]))
+
+    return recommendations
 

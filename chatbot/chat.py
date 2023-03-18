@@ -4,6 +4,8 @@ from urllib import response
 import torch
 from chatbot.model import NeuralNet
 from chatbot.nltk_utils import bag_of_words,tokenize
+from chatbot.utils import process_activities
+from PurposeRecommender.SparkALS import get_recommendations
 
 device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 with open('chatbot/intents.json','r') as f:
@@ -45,6 +47,8 @@ def get_response(msg):
     if prob.item() > 0.75:
         for intent in intents['intents']:
             if tag == intent["tag"]:
+                process_activities(tag, intent)
+                recommendations = get_recommendations(1)
                 response_message = random.choice(intent['responses'])
                 return response_message
     
