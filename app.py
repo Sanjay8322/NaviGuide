@@ -1,16 +1,19 @@
-from urllib import response
-from flask import Flask, render_template , jsonify,request
+from flask import Flask, Response, render_template , jsonify,request
+from PurposeRecommender.SparkALS import train_recommendations
 
 from chatbot.chat import get_response
  
-from PurposeRecommender.SparkALS import get_recommendations
+from PurposeRecommender.get_recommendations import get_recommendations
 from core.exceptions.app_exceptions import RecommendationException
 
 app=Flask(__name__)
 
+
+# Router - Controller
 @app.get("/")
 def index_get():
     return render_template("base.html") #for displaying html file
+
 
 @app.post("/predict")
 def predict():
@@ -32,6 +35,23 @@ def predict():
         return jsonify(response)
     except Exception as e:
         return "Error"
+
+
+@app.get("/train_recommendation_engine")
+def train_model():
+    try:    
+        train = train_recommendations()
+        response = {
+            "Status": "Success"
+        }
+        return jsonify(response)
+    except Exception as e:
+        response = {
+            "Status": "Error",
+            "Response": str(e)
+        }
+        return jsonify(Response)
+    
 
 if __name__=="__main__":
     app.run(debug=True)   

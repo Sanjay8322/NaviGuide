@@ -5,7 +5,6 @@ import torch
 from chatbot.model import NeuralNet
 from chatbot.nltk_utils import bag_of_words,tokenize
 from chatbot.utils import log_activities
-from PurposeRecommender.SparkALS import get_recommendations
 from core.exceptions.app_exceptions import LogActivitiesException
 
 device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')
