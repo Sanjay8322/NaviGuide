@@ -1,0 +1,24 @@
+
+#panorama {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.hotspot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.hotspot-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background-color: white;
+    border: 1px solid black;
+}
