@@ -4,7 +4,7 @@ from PurposeRecommender.SparkALS import train_recommendations
 from chatbot.chat import get_response
  
 from PurposeRecommender.get_recommendations import get_recommendations
-from core.exceptions.app_exceptions import RecommendationException
+from core.exceptions.app_exceptions import GetRecommendationException
 
 app=Flask(__name__)
 
@@ -27,7 +27,7 @@ def predict():
             "recommendations": recommendations
         }
         return jsonify(response)
-    except RecommendationException as e:
+    except GetRecommendationException as e:
         response = {
             "answer": chat_reply,
             "recommendations": None

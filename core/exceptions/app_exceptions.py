@@ -3,7 +3,7 @@ class LogActivitiesException(Exception):
         self.message = message
         super().__init__(self.message)
 
-class RecommendationException(Exception):
+class GetRecommendationException(Exception):
     def __init__(self, message):
         self.message = message
         super().__init__(self.message)
