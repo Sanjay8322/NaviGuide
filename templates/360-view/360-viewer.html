@@ -18,10 +18,13 @@
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 
     <script>
-        var image_url = "{{ url_for('static', filename='360-view/images/admin360.jpg') }}";
+        var admin_out = "{{ url_for('static', filename='360-view/images/admin_out.jpg') }}";
+        var admin_in = "{{ url_for('static', filename='360-view/images/admin_in.jpg') }}";
+        var library_out = "{{ url_for('static', filename='360-view/images/library_out.jpg') }}";
+        var library_in = "{{ url_for('static', filename='360-view/images/library_in.jpg') }}";
     </script>
 
-    <script type="text/javascript" src="{{ url_for('static', filename='360-view/js/main.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='360-view/js/main.js') }}"></script>
     
 </body>
 </html>
