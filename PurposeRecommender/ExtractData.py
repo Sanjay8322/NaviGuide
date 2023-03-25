@@ -10,14 +10,10 @@ class ExtractData:
 
     purposeID_to_name = {}
     name_to_purposeID = {}
-    ratingsPath = '../PurposeRecommender/training-data/mapping_dataset.csv'
-    purposePath = '../PurposeRecommender/training-data/purpose-Table 1.csv'
+    ratingsPath = 'PurposeRecommender/training-data/mapping_dataset.csv'
+    purposePath = 'PurposeRecommender/training-data/purpose-Table 1.csv'
     
     def loadData(self):
-
-        # Look for files relative to the directory we are running from
-        os.chdir(os.path.dirname(sys.argv[0]))
-
         dataset = 0
         self.purposeID_to_name = {}
         self.name_to_purposeID = {}
