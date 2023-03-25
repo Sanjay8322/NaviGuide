@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCT Naviguide</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='360-view/css/360-style.css') }}">
+
+</head>
+<body>
+    <div id="panorama"></div>
+
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+    <script>
+        var admin_out = "{{ url_for('static', filename='360-view/images/admin_out.jpg') }}";
+        var admin_in = "{{ url_for('static', filename='360-view/images/admin_in.jpg') }}";
+        var library_out = "{{ url_for('static', filename='360-view/images/library_out.jpg') }}";
+        var library_in = "{{ url_for('static', filename='360-view/images/library_in.jpg') }}";
+    </script>
+
+    <script type="module" src="{{ url_for('static', filename='360-view/js/main.js') }}"></script>
+    
+</body>
+</html>
