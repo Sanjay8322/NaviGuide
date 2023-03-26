@@ -53,5 +53,11 @@ def train_model():
         return jsonify(Response)
     
 
+
+@app.get('/view-360')
+def view_360():
+    return render_template("360-view/360-viewer.html") #for displaying html file
+
+
 if __name__=="__main__":
     app.run(debug=True)   
