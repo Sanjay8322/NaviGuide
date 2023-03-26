@@ -6,6 +6,7 @@ from chatbot.model import NeuralNet
 from chatbot.nltk_utils import bag_of_words,tokenize
 from chatbot.utils import log_activities
 from core.exceptions.app_exceptions import LogActivitiesException
+from text_to_speech.text_to_speech import get_audio_feedback
 
 device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 with open('chatbot/intents.json','r') as f:
@@ -45,14 +46,17 @@ def get_response(msg):
 
         probs = torch.softmax(output, dim=1)
         prob = probs[0][predicted.item()]
-        if prob.item() > 0.75:
+        if prob.item() > 0.5:
             for intent in intents['intents']:
                 if tag == intent["tag"]:
                     response_message = random.choice(intent['responses'])
+                    response_audio_url = get_audio_feedback(response_message)
                     log_activities(tag, intent)
-                    return response_message
+                    return response_message, response_audio_url
         
-        return "I do not understand..."
+        response_message = "I do not understand..."
+        response_audio_url = get_audio_feedback(response_message)
+        return response_message, response_audio_url
 
     except LogActivitiesException as e:
         return response_message
