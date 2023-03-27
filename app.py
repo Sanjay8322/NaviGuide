@@ -4,7 +4,7 @@ from PurposeRecommender.SparkALS import train_recommendations
 from chatbot.chat import get_response
  
 from PurposeRecommender.get_recommendations import get_recommendations
-from core.exceptions.app_exceptions import GetRecommendationException
+from core.exceptions.app_exceptions import GetRecommendationException, TextToAudioException
 
 app=Flask(__name__)
 
@@ -20,19 +20,27 @@ def predict():
     try:
         text=request.get_json().get("message")
         
-        chat_reply=get_response(text)
+        chat_reply, audio_path=get_response(text)
         recommendations = get_recommendations(1)
         response = {
             "answer": chat_reply,
-            "recommendations": recommendations
+            "recommendations": recommendations,
+            "audio_path": audio_path
         }
         return jsonify(response)
     except GetRecommendationException as e:
         response = {
             "answer": chat_reply,
-            "recommendations": None
+            "recommendations": None,
+            "audio_path": audio_path
         }
         return jsonify(response)
+    except TextToAudioException as e:
+        response = {
+            "answer": chat_reply,
+            "recommendations": recommendations,
+            "audio_path": None
+        }
     except Exception as e:
         return "Error"
 
@@ -50,8 +58,14 @@ def train_model():
             "Status": "Error",
             "Response": str(e)
         }
-        return jsonify(Response)
+        return jsonify(response)
     
+
+@app.get("/get-audio")
+def get_audio():
+    audio_path = request.args.get('audio_path')
+    audio_file = open(audio_path, "rb")
+    return Response(audio_file, mimetype="audio/mpeg")
 
 
 @app.get('/view-360')

@@ -61,6 +61,13 @@ class Chatbox {
             this.updateChatText(chatbox)
             textField.value = ''
 
+            console.log(r.audio_path)
+            
+            var audio_url = '/get-audio?audio_path=' + r.audio_path
+            fetch(audio_url)
+            .then(handleAudioResponse)
+            .catch(error => console.error(error));
+
         }).catch((error) => {
             console.error('Error:', error);
             this.updateChatText(chatbox)
@@ -89,3 +96,20 @@ class Chatbox {
 
 const chatbox = new Chatbox();
 chatbox.display();
+
+
+async function handleAudioResponse(response) {
+    // Handle audio file
+    if (response.headers.get('content-type').startsWith('audio')) {
+      const audioBlob = await response.blob();
+      const audioURL = URL.createObjectURL(audioBlob);
+      const audio = new Audio(audioURL);
+      audio.play();
+    }
+  
+    // Handle JSON response
+    const data = await response.json();
+    console.log(data);
+    // Do something with the JSON data
+  }
+
