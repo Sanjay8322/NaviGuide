@@ -21,24 +21,14 @@ def predict():
         text=request.get_json().get("message")
         
         chat_reply, audio_path=get_response(text)
-        recommendations = get_recommendations(1)
         response = {
             "answer": chat_reply,
-            "recommendations": recommendations,
-            "audio_path": audio_path
-        }
-        return jsonify(response)
-    except GetRecommendationException as e:
-        response = {
-            "answer": chat_reply,
-            "recommendations": None,
             "audio_path": audio_path
         }
         return jsonify(response)
     except TextToAudioException as e:
         response = {
             "answer": chat_reply,
-            "recommendations": recommendations,
             "audio_path": None
         }
     except Exception as e:
@@ -60,6 +50,24 @@ def train_model():
         }
         return jsonify(response)
     
+
+@app.get('/get_recommendations')
+def fetch_recommendations():
+    try:
+        user_id = request.args.get('user_id')
+        recommendations = get_recommendations(user_id)
+
+        response = {
+            "recommendations": recommendations,
+        }
+        return jsonify(response)
+
+    except Exception as e:
+        response = {
+            "status": "Error"
+        }
+        return jsonify(response)
+
 
 @app.get("/get-audio")
 def get_audio():
