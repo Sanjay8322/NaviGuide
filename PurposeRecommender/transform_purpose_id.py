@@ -40,5 +40,5 @@ purposes_list = [
     "munch box",
     "kore",
     "east kore",
-    "cafe coffee day"
+    "cafe coffee day", "Olipadi", "temple", "admin block", "olipadi", "KVB Bank"
 ]
