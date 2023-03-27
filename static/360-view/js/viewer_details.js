@@ -20,6 +20,14 @@ var locations = {
                 "type": "info",
                 "text": "Admin Block Interior",
                 clickHandlerFunc: getUrlQueryAppendingFunction('admin_in')
+            },
+
+            {
+                "name": "Photo taken location",
+                "pitch": -82.85,
+                "yaw": 173.88,
+                "type": "info",
+                "text": "Photo was clicked from here"
             }
         ]
     },
