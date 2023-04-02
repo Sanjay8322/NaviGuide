@@ -3,7 +3,9 @@ class Chatbox {
         this.args = {
             openButton: document.querySelector('.chatbox__button'),
             chatBox: document.querySelector('.chatbox__support'),
-            sendButton: document.querySelector('.send__button')
+            sendButton: document.querySelector('.send__button'),
+            recButton: document.querySelector('.rec__button'),
+
         }
 
         this.state = false;
@@ -11,11 +13,14 @@ class Chatbox {
     }
 
     display() {
-        const {openButton, chatBox, sendButton} = this.args;
+        const {openButton, chatBox, sendButton, recButton} = this.args;
 
-        openButton.addEventListener('click', () => this.toggleState(chatBox))
+        openButton.addEventListener('click', () => this.toggleState(chatBox)) 
 
         sendButton.addEventListener('click', () => this.onSendButton(chatBox))
+
+        recButton.addEventListener('click', () => this.onRecButton(chatBox))
+
 
         const node = chatBox.querySelector('input');
         node.addEventListener("keyup", ({key}) => {
@@ -23,6 +28,8 @@ class Chatbox {
                 this.onSendButton(chatBox)
             }
         })
+
+
     }
 
     toggleState(chatbox) {
@@ -91,6 +98,29 @@ class Chatbox {
         const chatmessage = chatbox.querySelector('.chatbox__messages');
         chatmessage.innerHTML = html;
     }
+
+
+    onRecButton(chatbox) {
+        console.log(chatbox);
+        fetch('http://127.0.0.1:5000/get_recommendations?user_id=1', {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+          })
+          .then(r => r.json())
+          .then(recommendations => {
+              console.log(recommendations)
+            let msg = { name: "Sam", message: "Recommendations for you: " + recommendations['recommendations'].join(", ") };
+            this.messages.push(msg);
+            this.updateChatText(chatbox);
+        }).catch((error) => {
+            console.error('Error:', error);
+            this.updateChatText(chatbox);
+          });
+    }
+
 }
 
 
