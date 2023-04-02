@@ -26,9 +26,12 @@
       "responses": ["Happy to help!","My pleasure"]
     },
     {
-      "tag": "admin",
+      "tag": "navigation",
       "patterns": [
         "where is admin block?",
+        "where",
+        "how to visit",
+        "navigation",
         "girls hostel",
         "boys hostel",
         "B block",
@@ -41,8 +44,6 @@
         "Please use the above navigation box enter the location you want to go!"
       ],
       "purpose_tags": [
-        "visit_campus",
-        "explore"
       ]
     },
     {
@@ -81,10 +82,19 @@
         "i am hungry",
         "juice",
         "where can i buy juice",
-        "eat"
+        "eat",
+        "ks cafe",
+        "munch box"
       ],
       "responses": [
         "You can search for kore, east kore, or k's cafe in the navigation box"
+      ],
+      "activity_tags": [
+        "ks cafe",
+        "munch box",
+        "kore",
+        "east kore",
+        "cafe coffee day"
       ]
     },
     {
@@ -96,6 +106,27 @@
       ],
       "responses": [
         "Some available clubs at KCT are Varnam, evoke, band agartha, studio kct, iQube, SOIL, etc.\nFor more info visit: https://www.kct.ac.in/office-of-student-affairs/"
+      ]
+    },
+    {
+      "tag": "General Visit",
+      "patterns": [
+        "olipadi",
+        "kvb bank",
+        "temple",
+        "admin block",
+        "where to seek admissions",
+        "where to get food",
+        "where is admin block"
+      ],
+      "responses": [
+        "Please use the map and enter these locations"
+      ],
+      "activity_tags": [
+        "Olipadi",
+        "KVB Bank",
+        "temple",
+        "admin block"
       ]
     }
   ]

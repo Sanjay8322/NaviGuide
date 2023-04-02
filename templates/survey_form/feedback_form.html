@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey form</title>
+    <style>
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #101169;
+            color: #fff;
+            font-size: 24px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 80%;
+            margin: 0 auto;
+            text-align: left;
+
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/survey">
+        <table class="centered">
+            <tr>
+              <td><label for="name">Name:</label></td>
+              <td><input type="text" id="name" name="name"></td>
+            </tr>
+            <tr>
+              <td><label for="purpose">Purpose for visiting:</label></td>
+              <td>
+                <select id="purpose" name="purpose">
+                  <option value="admission">Admission</option>
+                  <option value="events">Events</option>
+                  <option value="others">Others</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="status">Are you a student/parent/other college student?</label></td>
+              <td>
+                <input type="radio" id="student" name="status" value="student">
+                <label for="student">Student</label>
+                <input type="radio" id="parent" name="status" value="parent">
+                <label for="parent">Parent</label>
+                <input type="radio" id="college_student" name="status" value="other_college_student">
+                <label for="college_student">Other College Student</label>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="first_time">First time visiting?</label></td>
+              <td>
+                <input type="radio" id="yes" name="first_time" value="yes">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="first_time" value="no">
+                <label for="no">No</label>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="feedback">Do you like using NaviGuide?</label></td>
+              <td>
+                <input type="radio" id="yes" name="feedback" value="yes">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="feedback" value="no">
+                <label for="no">No</label>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="improve">Help us improve:</label></td>
+              <td><textarea id="improve" name="improve"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit"></td>
+              </tr>
+              
+          </table>
+          
+    </form>
+</body>
+</html>

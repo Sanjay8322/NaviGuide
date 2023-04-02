@@ -4,6 +4,9 @@ from urllib import response
 import torch
 from chatbot.model import NeuralNet
 from chatbot.nltk_utils import bag_of_words,tokenize
+from chatbot.utils import log_activities
+from core.exceptions.app_exceptions import LogActivitiesException
+from text_to_speech.text_to_speech import get_audio_feedback
 
 device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 with open('chatbot/intents.json','r') as f:
@@ -30,25 +33,35 @@ model.eval()
 
 bot_name="KCT bot"
 def get_response(msg):
-    sentence = tokenize(msg)
-    X = bag_of_words(sentence, all_words)
-    X = X.reshape(1, X.shape[0])
-    X = torch.from_numpy(X).to(device)
+    try:
+        sentence = tokenize(msg)
+        X = bag_of_words(sentence, all_words)
+        X = X.reshape(1, X.shape[0])
+        X = torch.from_numpy(X).to(device)
 
-    output = model(X)
-    _, predicted = torch.max(output, dim=1)
+        output = model(X)
+        _, predicted = torch.max(output, dim=1)
 
-    tag = tags[predicted.item()]
+        tag = tags[predicted.item()]
 
-    probs = torch.softmax(output, dim=1)
-    prob = probs[0][predicted.item()]
-    if prob.item() > 0.75:
-        for intent in intents['intents']:
-            if tag == intent["tag"]:
-                response_message = random.choice(intent['responses'])
-                return response_message
-    
-    return "I do not understand..."
+        probs = torch.softmax(output, dim=1)
+        prob = probs[0][predicted.item()]
+        if prob.item() > 0.1:
+            for intent in intents['intents']:
+                if tag == intent["tag"]:
+                    response_message = random.choice(intent['responses'])
+                    response_audio_url = get_audio_feedback(response_message)
+                    log_activities(tag, intent)
+                    return response_message, response_audio_url
+        
+        response_message = "I do not understand..."
+        response_audio_url = get_audio_feedback(response_message)
+        return response_message, response_audio_url
+
+    except LogActivitiesException as e:
+        return response_message
+    except Exception as e:
+        return "Error"
 
 
 if __name__ == "__main__":

@@ -18,6 +18,7 @@
 
         <div>
             <iframe
+            title="Naviguide_map"
             id="map-viewer-iframe"
             style="width:100%; height:600px"
             src="https://map-viewer.situm.com?email=ssai41816@gmail.com&apikey=f757f847bb42c2c1dae2f1d0b7969c654cc1ec3fcf1023cf7df017a955114847">
@@ -45,6 +46,8 @@
                     <input type="text" placeholder="Write a message...">
                     <button class="chatbox__send--footer send__button">Send</button>
                 </div>
+                <button class="chatbox__send--footer rec__button">Click here to get Recommendations</button>
+
             </div>
             <div class="chatbox__button">
                 <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
@@ -53,11 +56,11 @@
 
         <div class="button_container">
             <button class="button"><a
-                    href="https://veespaces.live/360/?campaign_id=campdemo&tour_code=5oCgSR46Ol19viFHX0KDA38PTrcpaQnf"
+                    href="/view-360"
                     target="_blank" style="text-decoration: none;color: white;">Explore KCT in 360 View</a></button>
             <p style="color:#0c0531 ; margin: 20px; font-weight: bold;">Please complete the survey to assist KCT
                 management. Your input is appreciated. Thank you.</p>
-            <button class="button"><a href="" target="blank"
+            <button class="button"><a href="/survey" target="blank"
                     style="text-decoration: none; color: white;">Survey</a></button>
         </div>
 

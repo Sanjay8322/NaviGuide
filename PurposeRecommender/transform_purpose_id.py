@@ -31,7 +31,14 @@ purpose_id_map = {
 }
 
 
-purposes_list = ['Purpose-m1', 'Purpose-m2', 'Purpose-m3', 'Purpose-m4', 'Purpose-m5', 'Purpose-m6', 'Purpose-m7',
-                 'Purpose-m8', 'Purpose-m9', 'Purpose-m10', 'Purpose-m11', 'Purpose-m12', 'Purpose-msm1', 'Purpose-msm2',
-                 'Purpose-msm3', 'Purpose-msm4', 'Purpose-b1', 'Purpose-b2', 'Purpose-b3', 'Purpose-b4', 'Purpose-z1',
-                 'Purpose-z2', 'Purpose-z3', 'Purpose-z4', 'Purpose-z5', 'Purpose-z6', 'Purpose-z7', 'Purpose-z8']
+purposes_list = [
+    'Purpose-m1', 'Purpose-m2', 'Purpose-m3', 'Purpose-m4', 'Purpose-m5', 'Purpose-m6', 'Purpose-m7',
+    'Purpose-m8', 'Purpose-m9', 'Purpose-m10', 'Purpose-m11', 'Purpose-m12', 'Purpose-msm1', 'Purpose-msm2',
+    'Purpose-msm3', 'Purpose-msm4', 'Purpose-b1', 'Purpose-b2', 'Purpose-b3', 'Purpose-b4', 'Purpose-z1',
+    'Purpose-z2', 'Purpose-z3', 'Purpose-z4', 'Purpose-z5', 'Purpose-z6', 'Purpose-z7', 'Purpose-z8',
+    "ks cafe",
+    "munch box",
+    "kore",
+    "east kore",
+    "cafe coffee day", "Olipadi", "temple", "admin block", "olipadi", "KVB Bank"
+]
