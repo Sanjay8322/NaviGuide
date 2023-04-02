@@ -10,8 +10,7 @@ let viewer_details = {
     showZoomCtrl: true,
     draggable: true,
     friction: 0.09,
-    autoRotate: -3,
-    hotSpotDebug: true
+    autoRotate: -3
 }
 
 var current_view_place = get_current_view_place(window);
