@@ -53,7 +53,7 @@ class Chatbox {
         let msg1 = { name: "User", message: text1 }
         this.messages.push(msg1);
 
-        fetch('http://127.0.0.1:5000/predict', {
+        fetch('/predict', {
             method: 'POST',
             body: JSON.stringify({ message: text1 }),
             mode: 'cors',
@@ -102,7 +102,7 @@ class Chatbox {
 
     onRecButton(chatbox) {
         console.log(chatbox);
-        fetch('http://127.0.0.1:5000/get_recommendations?user_id=1', {
+        fetch('/get_recommendations?user_id=1', {
             method: 'GET',
             mode: 'cors',
             headers: {
