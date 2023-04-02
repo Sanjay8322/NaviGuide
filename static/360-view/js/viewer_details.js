@@ -28,7 +28,22 @@ var locations = {
                 "yaw": 173.88,
                 "type": "info",
                 "text": "Photo was clicked from here"
-            }
+            },
+            {
+                "name": "Way to Kore",
+                "pitch": -3.392,
+                "yaw": 64.06,
+                "type": "info",
+                "text": "Way to Kore"
+            },
+            {
+                "name": "Way to CCD",
+                "pitch": -1.424,
+                "yaw": -60.980,
+                "type": "info",
+                "text": "Way to CCD"
+            },
+            
         ]
     },
 
@@ -42,7 +57,37 @@ var locations = {
                 "type": "info",
                 "text": "Mahatma Gandhi Library",
                 clickHandlerFunc: getUrlQueryAppendingFunction('library_out')
-            }
+            },
+            {
+                "name": "Cash Counter / Admission office",
+                "pitch": -4.30574,
+                "yaw": 119.694,
+                "type": "info",
+                "text": "Cash Counter / Admission office"
+            },
+            {
+                "name": "KCLAS",
+                "pitch": -4.4565,
+                "yaw": -129.07,
+                "type": "info",
+                "text": "KCLAS"
+            },
+            {
+                "name": "Way to auditorium",
+                "pitch": -2.5564,
+                "yaw": -17.782,
+                "type": "info",
+                "text": "Way to auditorium"
+            },
+            {
+                "name": "Restroom",
+                "pitch": -2.03648,
+                "yaw": 13.926,
+                "type": "info",
+                "text": "Restroom"
+            },
+            
+
         ]
     },
 
@@ -70,7 +115,7 @@ var locations = {
                 "type": "info",
                 "text": "Mahatma Gandhi Library",
                 clickHandlerFunc: getUrlQueryAppendingFunction('library_out')
-            }
+            },
         ]
     }
 }
