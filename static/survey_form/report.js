@@ -62,9 +62,9 @@ function createCharts(purposeData, visitorStatusData, firstTimeVisitingData) {
   .then(response => response.json())
   .then(data => {
       console.log(data)
-    const purposeData = Object.values(data.purpose);
+    const purposeData = Object.values(data.visit_purpose);
     const visitorStatusData = Object.values(data.visitor_status);
-    const firstTimeVisitingData = Object.values(data.first_time_visiting);
+    const firstTimeVisitingData = Object.values(data.first_time);
     
     // call a function to create charts with above data
     createCharts(purposeData, visitorStatusData, firstTimeVisitingData);
