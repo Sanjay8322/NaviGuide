@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Chart.js Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='survey_form/style.css') }}">
+
+    
+  </head>
+  <body>
+    <h1>Visitor Statistics</h1>
+    <div id="charts" class="charts">
+      <canvas class="chart" id="purposeChart" width="200" height="200"></canvas>
+      <canvas class="chart" id="visitorStatusChart" width="200" height="200"></canvas>
+      <canvas class="chart" id="firstTimeVisitingChart" width="200" height="200"></canvas>
+    </div>
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='survey_form/report.js') }}"></script>
+
+  </body>
+</html>
