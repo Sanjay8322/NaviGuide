@@ -5,9 +5,15 @@ from chatbot.chat import get_response
  
 from PurposeRecommender.get_recommendations import get_recommendations
 from core.exceptions.app_exceptions import GetRecommendationException, TextToAudioException
+from core.db.db import connect_db, create_survey_table
 
 app=Flask(__name__)
 
+
+# Connect to PostgreSQL
+conn = connect_db()
+#TODO Change this dirty method of db create table to a well maintainable one (using tools like liquibase), with changelogs maintanance
+create_survey_table(conn)
 
 # Router - Controller
 @app.get("/")
@@ -79,6 +85,32 @@ def get_audio():
 @app.get('/view-360')
 def view_360():
     return render_template("360-view/360-viewer.html") #for displaying html file
+
+
+@app.get('/survey')
+def survey_form():
+    return render_template('survey_form/feedback_form.html')
+
+@app.post('/survey')
+def survey_form_submit():
+    name = request.form.get('name')
+    purpose = request.form.get('purpose')
+    status = request.form.get('status')
+    first_time = request.form.get('first_time') == 'yes'
+    feedback = request.form.get('feedback') == 'yes'
+    improve = request.form.get('improve')
+
+    with conn.cursor() as cursor:
+        cursor.execute(
+            '''
+            INSERT INTO survey_responses (name, visit_purpose, visitor_status, first_time, like_naviguide, improve_feedback)
+            VALUES (%s, %s, %s, %s, %s, %s)
+            ''',
+            (name, purpose, status, first_time, feedback, improve)
+        )
+        conn.commit()
+
+    return render_template('survey_form/thanks.html')
 
 
 if __name__=="__main__":
