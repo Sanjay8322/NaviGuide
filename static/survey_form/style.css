@@ -1,0 +1,10 @@
+.charts{
+    display: flex;
+    margin: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart{
+    margin: 40px;
+}

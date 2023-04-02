@@ -6,6 +6,7 @@ from chatbot.chat import get_response
 from PurposeRecommender.get_recommendations import get_recommendations
 from core.exceptions.app_exceptions import GetRecommendationException, TextToAudioException
 from core.db.db import connect_db, create_survey_table
+from reports.controller import get_visitor_statistics
 
 app=Flask(__name__)
 
@@ -111,6 +112,15 @@ def survey_form_submit():
         conn.commit()
 
     return render_template('survey_form/thanks.html')
+
+@app.get('/reports')
+def reports():
+    reports = get_visitor_statistics()
+    return jsonify(reports)
+
+@app.get('/report_page')
+def report_page():
+    return render_template('survey_form/survey_report.html')
 
 
 if __name__=="__main__":
