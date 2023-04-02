@@ -103,6 +103,14 @@ html {
     cursor: pointer;
 }
 
+.rec__button {
+    padding: 8px;
+    background: grey;
+    border: #0c0531;
+    outline: none;
+    cursor: pointer;
+}
+
 
 .chatbox__header {
     position: sticky;
