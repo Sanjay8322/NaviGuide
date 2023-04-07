@@ -22,12 +22,12 @@ def get_recommendations(user_id):
 
         user_recs = all_user_recs.filter(all_user_recs['userId'] == user_id).collect()
 
-        ed = ExtractData()
-        ed.loadData()
+        # ed = ExtractData()
+        # ed.loadData()
         recommendations = []
         for row in user_recs:    
             for rec in row.recommendations:
-                recommendations.append(ed.getpurposeName(purposes_list[rec.purposeId]))
+                recommendations.append(purposes_list[rec.purposeId])
 
         spark.stop()
 
