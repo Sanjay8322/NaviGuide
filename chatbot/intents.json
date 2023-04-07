@@ -43,11 +43,19 @@
       "responses": [
         "Please use the above navigation box enter the location you want to go!"
       ],
-      "purpose_tags": [
+      "activity_tags": [
+        "B block",
+        "C block",
+        "D block",
+        "E block",
+        "girls hostel",
+        "boys hostel",
+        "admin block"
+
       ]
     },
     {
-      "tag": "admin",
+      "tag": "MainBuildings",
       "patterns": [
         "where is admin block?",
         "girls hostel",
@@ -59,9 +67,9 @@
         "kore"
       ],
       "responses": [
-        "Please use the above navigation box enter the location you want to go!"
+        "This is an important building of KCT Please use the above navigation box enter the location you want to go!"
       ],
-      "purpose_tags": [
+      "activity_tags": [
         "visit_campus",
         "explore"
       ]
@@ -102,10 +110,37 @@
       "patterns": [
         "available clubs",
         "clubs in kct",
-        "clubs"
+        "clubs",
+        "Qubate club",
+        "Able club",
+        "Kural club",
+        "SOIL club",
+        "Band Agartha",
+        "Agam",
+        "Books and beyond",
+        "Studio KCT",
+        "Evoke",
+        "Varnam",
+        "Tamil mandram",
+        "Athletic Track"
       ],
       "responses": [
         "Some available clubs at KCT are Varnam, evoke, band agartha, studio kct, iQube, SOIL, etc.\nFor more info visit: https://www.kct.ac.in/office-of-student-affairs/"
+      ],
+      "activity_tags":[
+          "Qubate club",
+          "Able club",
+          "Kural club",
+          "SOIL club",
+          "Band Agartha",
+          "Agam",
+          "Books and beyond",
+          "Studio KCT",
+          "Evoke",
+          "Varnam",
+          "Varnam",
+          "Tamil mandram",
+          "Athletic Track"
       ]
     },
     {
@@ -114,10 +149,44 @@
         "olipadi",
         "kvb bank",
         "temple",
+        "K mart",
         "admin block",
         "where to seek admissions",
         "where to get food",
-        "where is admin block"
+        "where is admin block",
+        "Account office",
+        "Reception",
+        "ORB",
+        "munch box at Admin block",
+        "Auditorium",
+        "Seminar hall",
+        "Guest house"
+      ],
+      "responses": [
+        "Please use the map and enter these locations."
+      ],
+      "activity_tags": [
+        "Olipadi",
+        "KVB Bank",
+        "temple",
+        "admin block",
+        "K mart",
+        "ORB",
+        "munch box at Admin block",
+        "Auditorium",
+        "Seminar hall",
+        "Guest house"
+      ]
+    }
+    ,
+    {
+      "tag": "facilities",
+      "patterns": [
+        "boys hostel",
+        "girls hostel",
+        "Bus depot",
+        "Bathrooms",
+        "Parking"
       ],
       "responses": [
         "Please use the map and enter these locations"
@@ -127,6 +196,103 @@
         "KVB Bank",
         "temple",
         "admin block"
+      ]
+    },
+    {
+      "tag": "sports",
+      "patterns": [
+          "cricket",
+          "football",
+          "hockey",
+          "badminton",
+          "Caroom",
+          "Chess",
+          "Basketball",
+          "Volleyball",
+          "MMA",
+          "boxing",
+          "throw ball",
+          "kabadi",
+          "tennis",
+          "kho-kho"
+
+      ],
+      "responses": [
+        "These are some of the sports in KCT Cricket,Basketball etc.. For queries Visit KCT official site"
+      ],
+      "activity_tags": [
+        "gym",
+        "football court",
+        "badminton court",
+        "Basketball court",
+        "Volleyball court",
+        "cricket ground"
+      ]
+    },
+    {
+      "tag": "Computerlabs",
+      "patterns": [
+        "Project room",
+        "Computer lab",
+        "IT lab"
+      ],
+      "responses": [
+        "Visit admin block 3rd floor & for IT lab 2nd floor"
+      ],
+      "activity_tags": [
+          "CAD lab",
+          "MAD lab",
+          "Matlab",
+          "Physics lab",
+          "EEE lab",
+          "IT lab",
+          "Library"
+      ]
+    },
+
+    {
+      "tag": "Labfacilities",
+      "patterns": [
+        "CAD lab",
+        "MAD lab",
+        "Matlab",
+        "Physics lab",
+        "EEE lab",
+        "Bio tech lab",
+        "ECE lab"
+
+      ],
+      "responses": [
+        "Please use the map and enter these locations"
+      ],
+      "activity_tags": [
+          "Project room",
+          "Computer lab",
+          "EEE lab",
+          "Bio tech lab",
+          "IT lab",
+          "Library"
+      ]
+    },
+    {
+      "tag": "Iqube",
+      "patterns": [
+        "iqube",
+        "Where is Iqube",
+        "RE",
+        "What is Iqube",
+        "Tell me about Iqube club"
+
+      ],
+      "responses": [
+        "It's an innovation center in our college.Visit https://iqubekct.ac.in for more"
+      ],
+      "activity_tags": [
+         "Project room",
+         "Computer lab",
+         "IT lab",
+         "Library",
+         "Re"
       ]
     }
   ]
