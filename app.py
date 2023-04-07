@@ -10,6 +10,29 @@ from reports.controller import get_visitor_statistics
 
 app=Flask(__name__)
 
+### TODO`s: ###
+# Create a changelog file for maintaining DB schema changes. Use tool like liquibase to maintain db schema migrations (if we adopt RDBMS)
+# Add authentication and authorization - JWT authentication preferably
+# Store the configurations/env specific values in a .env file and load it from there. Move some of the required hardcoded configs there
+# For recommendation system, make the user id column entry dynamic after adding authentication.
+# Configure Loggers
+# Use database instead of excel files for logging (adding) recommendation system data (probably nosql)
+
+# For 360 view, the location images are currently static. We can make it dynamic by storing the images in DB
+    # - Media storage more precisely. Media (img) urls will be stored in DB
+    # - For this 360 view module's structure has to be modified
+# Currently our frontend's size is small, so we can change the stack to React - Flask if possible, since already we are using json requests & responses
+
+### TODO`s (Flask specific): ###
+# Move all these functions in this app.py to controller.py of respective modules
+# Routers should be in seperate router.py. Use blueprints
+# Make the API endpoints RESTful
+# Implement before request and after request
+# Authentication and authorization should be handled globally in before request
+# Module/API permissions can be mapped in a table
+
+# Some other TODO`s are mentioned in some other places too
+
 
 # Connect to PostgreSQL
 conn = connect_db()
@@ -42,6 +65,7 @@ def predict():
         return "Error"
 
 
+# TODO this endpoint should be accessible only by some admin user. Hence implement authorization here
 @app.get("/train_recommendation_engine")
 def train_model():
     try:    
