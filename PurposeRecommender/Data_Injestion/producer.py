@@ -28,7 +28,7 @@ if __name__ == '__main__':
     datas = [
                 {
                 "Userid": 2,
-                "Purposeid": "munchbox",
+                "Purposeid": "east kore",
                 "Visit-frequency": 1
         }
         ]

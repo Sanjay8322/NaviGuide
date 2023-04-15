@@ -3,9 +3,11 @@ from confluent_kafka import Consumer, KafkaError
 import csv
 
 from csv_handler import process_csv
+from SparkALS import train_recommendations
 
 def consumer():
     # Set up the Kafka consumer configuration
+    print('Starting consumer...')
     conf = {'bootstrap.servers': 'localhost:9092',
             'group.id': 'rec-sys-group',
             'auto.offset.reset': 'latest'}
@@ -17,6 +19,9 @@ def consumer():
     topic_name = 'user_activities'
     consumer.subscribe([topic_name])
 
+    print(f'Subscribed to topic {topic_name}')
+    print("Starting to consume data...")
+    data_counter = 0
     # Continuously poll for new messages in the Kafka topic and write them to the CSV file
     while True:
         msg = consumer.poll(1.0)
@@ -37,11 +42,21 @@ def consumer():
 
             # Write the message key and value to the CSV file
             process_csv(activity)
+        data_counter+=1
 
-        
+        if data_counter>=100:
+            # train_recommendations()
+            data_counter=0
+            print('Training recommendation engine with new dataset...')
+            res = train_recommendations()
+            if res:
+                print('Training done')
+            else:
+                print('Error while training')
 
-    # Close the CSV file and Kafka consumer instance when finished
-    csv_file.close()
+ 
+    # Close the Kafka consumer instance when finished
+
     consumer.close()
 
 if __name__ == '__main__':
