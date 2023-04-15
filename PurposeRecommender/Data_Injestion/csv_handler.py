@@ -4,7 +4,7 @@ import csv
 
 
 def process_csv(data):
-    filename = 'output.csv'
+    filename = 'PurposeRecommender/training-data/mapping_dataset.csv'
     tempfile = NamedTemporaryFile(mode='w', delete=False)
 
     fields = ['Userid', 'Purposeid', 'Visit-frequency']
