@@ -1,23 +1,31 @@
 from confluent_kafka import Producer
 import json
+from celery import Celery
 
-def produce(topic_name, datas):
+celery = Celery('naviguide',
+        broker='redis://localhost:6379',
+        backend='redis://',
+        include=['PurposeRecommender.Data_Injestion.producer', 'chatbot.utils'])
+
+@celery.task
+def produce_to_topic(topic_name, datas):
         # Set up the Kafka producer configuration
         conf = {'bootstrap.servers': 'localhost:9092',
-                'client.id': 'python-producer'}
+                'client.id': 'python-producer',
+                'batch.size': 1000}
 
         # Create a Kafka producer instance
-        producer = Producer(conf)
-
+        producer_instance = Producer(conf)
+        
         for data in datas:
                 # Convert the data to bytes
                 data_bytes = json.dumps(data)
 
                 # Push the data to the Kafka topic
-                producer.produce(topic_name, value=data_bytes)
+                producer_instance.produce(topic_name, value=data_bytes)
 
         # Flush any outstanding messages in the producer buffer
-        producer.flush()
+        producer_instance.flush()
 
         # Close the Kafka producer instance
         # producer.close()
@@ -33,5 +41,5 @@ if __name__ == '__main__':
         }
         ]
     topic_name = 'user_activities'
-    produce(topic_name, datas)
+    produce_to_topic(topic_name, datas)
 

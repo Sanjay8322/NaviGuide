@@ -1,7 +1,8 @@
 import csv
-from PurposeRecommender.Data_Injestion.producer import produce
+from PurposeRecommender.Data_Injestion.producer import produce_to_topic
 from PurposeRecommender.transform_purpose_id import purposes_list
 from core.exceptions.app_exceptions import LogActivitiesException
+from celery.result import AsyncResult
 
 
 def log_activities(tag, intent):
@@ -11,7 +12,7 @@ def log_activities(tag, intent):
             return
 
         user_id=2
-        log_to_kafka_topic(user_id, activities)
+        res = log_to_kafka_topic(user_id, activities)
     except Exception as e:
         raise LogActivitiesException('Error during logging activities')
 
@@ -43,5 +44,9 @@ def log_to_kafka_topic(user_id, activities):
         }
         datas.append(row)
 
-    produce('user_activities', datas)
+    result = produce_to_topic.delay('user_activities', datas)
+
+    task_id = result.id
+
+    return task_id
 
