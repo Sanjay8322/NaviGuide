@@ -59,7 +59,7 @@ def get_response(msg):
         return response_message, response_audio_url
 
     except LogActivitiesException as e:
-        return response_message
+        return response_message, response_audio_url
     except Exception as e:
         return "Error"
 
